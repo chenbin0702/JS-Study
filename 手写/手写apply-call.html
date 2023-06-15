@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function exceFn(thisObj,data,fn)
+    {
+      thisObj=(thisObj===null||thisObj===undefined)?window:Object(thisObj)
+      Object.defineProperty(thisObj,'fn',{
+        enumerable:false,
+        configurable:true,
+        value:fn
+      })
+      thisObj.fn(...data)
+      delete thisObj.fn
+    }
+    Function.prototype.cbApply=function(thisObj,data)
+    {
+      console.log("cbApply",this);
+      exceFn(thisObj,data,this)
+    }
+    Function.prototype.cbCall=function(thisObj,...data)
+    {
+      console.log("cbApply",this);
+      exceFn(thisObj,data,this)
+    }
+   function foo()
+   {
+      console.log(this);
+   }
+   foo.cbApply({name:'cb'},[232,111])
+   foo.cbApply(null,[11,22])
+  </script>
+</body>
+</html>

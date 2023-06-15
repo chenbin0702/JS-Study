@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Foo()
+    {
+    //  1.创建空对象
+    // 2.将Foo的prototype属性（显示原型）赋值给空对象的__proto__(隐式原型)
+    }
+    console.log(Foo.prototype);
+    var f1=new Foo()
+    console.log(f1.__proto__);
+    console.log(Foo.prototype===f1.__proto__);
+
+  </script>
+</body>
+</html>

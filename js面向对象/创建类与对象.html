@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.创建类class 创建一个明星类 
+        class Star{
+            // constructor构造函数方法
+               constructor(uname,age){
+                   this.uname=uname;
+                   this.age=age;
+               }
+            //    类里面函数不要写function
+            // 多个函数方法之间不要用逗号分隔
+                  
+        }
+        Star.prototype.sing=function(song){
+                   console.log(this.uname+'唱了'+song);
+               }
+        // 利用类创建对象 new
+        var ldh=new Star('刘德华',40);
+        var zxy=new Star('张学友',50);
+         //1.实例成员就是构造函数内部通过this添加的成员 uname age sing 就是实例成员
+        // 实例成员只能通过实例化的对象访问
+        console.log(ldh);
+        console.log(zxy);
+        // 静态成员 在钩爪函数本身上添加的成员 sex就是静态成员
+        // 静态成员只能通过构造函数访问 不能通过对象访问
+        Star.sex='男';
+       console.log(Star.sex);
+       ldh.sing('忘情水');
+       zxy.sing('我爱你');
+    </script>
+</body>
+</html>

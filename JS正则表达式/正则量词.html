@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // {n} 表示n个数
+    // {n,m} 表示n到m之间个数
+    // + 表示一个或多个 {1,}
+    //  ? 表示零个或一个 {0,1}
+    // *表示零个或多个 {0,}
+    const htmlText='<div><span>1121</span> <h2>急急急</h2> </div>'
+    const reg=/<\/?[a-z][a-z0-9]*>/ig
+    console.log(htmlText.match(reg));
+  </script>
+</body>
+</html>

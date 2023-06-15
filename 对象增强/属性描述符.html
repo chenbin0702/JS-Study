@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj={
+      name:'chenbin',
+      age:21,
+    }
+    Object.defineProperty(obj,"name",{
+      configurable:false,
+      // 属性不能删除
+      writable:false,
+      // 属性不可修改，只能读取
+      enumerable:false,
+      // 是否可以通过for-in 或者Object.keys()返回属性
+      value:"hr"
+    })
+    console.log(obj.name);
+  </script>
+</body>
+</html>

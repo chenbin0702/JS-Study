@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Father{
+            constructor(x,y)
+            {
+                this.x=x;
+                this.y=y;
+            }
+            sum(){
+                console.log(this.x+this.y);
+            }
+            say(){
+                return "窝嫩爹";
+            }
+        }
+        // 子类继承父类加法同时 扩展减法方法
+        class Son extends Father{
+            constructor(x,y)
+            {
+              super(x,y);
+            //  super调用父类中的构造函数
+            // ！！！super必须在子类this之前调用
+            this.x=x;
+            this.y=y;
+            }
+            subtract()
+            {
+                console.log(this.x-this.y);
+            }
+            say()
+            {
+                console.log(super.say()+"的满崽");
+                // super.say()就是调用父类中的普通函数say();
+            } 
+        }
+        var son=new Son(1,2);
+        son.sum();
+        son.subtract();
+        son.say();
+        // 继承中属性和方法采用：就近原则
+        // 1.继承中。如果实例化子类输出一个方法，先看子类有没有这个方法，如果有就先持行子类的
+        // 2.继承中，如果子类没有就去父类中找（采用就近原则）
+    </script>
+</body>
+</html>

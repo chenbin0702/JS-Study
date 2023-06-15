@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function formatTime(timestamp,fmtString)
+    {
+        const date=new Date(timestamp)
+        const dateObj={
+          "y+":date.getFullYear(),
+          "M+":date.getMonth()+1,
+          "d+":date.getDate(),
+          "h+":date.getHours(),
+          "m+":date.getMinutes(),
+          "s+":date.getSeconds()
+        }
+        for(const key in dateObj)
+        {
+          const keyRe=new RegExp(key)
+          if(keyRe.test(fmtString))
+          {
+            const value=(dateObj[key]+"").padStart(2,"0")
+            fmtString=fmtString.replace(keyRe,value)
+          }
+        }
+        return fmtString
+    }
+    const timestamp=1659252301637
+    const time1=formatTime(timestamp,"yyyy-MM-dd hh:mm:ss")
+    const time2=formatTime(timestamp,"yyyy/MM/dd hh-mm-ss")
+    const time3=formatTime(timestamp,"hh:mm-ss yyyy/MM/dd")
+    console.log(time1,"time1");
+    console.log(time2,"time2");
+    console.log(time3,"time3");
+  </script>
+</body>
+</html>

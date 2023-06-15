@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>红烧肉</li>
+        <li>小炒肉</li>
+        <li>黄焖鸡</li>
+        <li>麻婆豆腐</li>
+    </ul>
+    <script>
+        var lis=document.querySelector('ul').querySelectorAll('li');
+        for(var i=0;i<lis.length;i++)
+        {
+           (function(i){
+               lis[i].addEventListener('click',function(){
+                   console.log(i);
+               })
+           }) (i)
+        }
+    </script>
+</body>
+</html>

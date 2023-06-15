@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const message='我喜欢的前端书籍 <js权威指南> 和 <你不知道的js>'
+    // 贪婪模式
+    // const reg=/<.+>/ig
+    // console.log(message.match(reg));
+    // 输出 <js权威指南> 和 <你不知道的js>
+    // 惰性模式
+    const reg=/<.+?>/ig // const reg=/<.*?>/ig 
+    console.log(message.match(reg));
+    //  ['<js权威指南>', '<你不知道的js>']
+  </script>
+</body>
+</html>

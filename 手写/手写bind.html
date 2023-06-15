@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    Function.prototype.cbBind=function(thisObj,...data)
+    {
+      thisObj=(thisObj===null||thisObj===undefined)?window:Object(thisObj)
+      Object.defineProperty(thisObj,'fn',{
+        enumerable:false,
+        configurable:true,
+        value:this
+      })
+      return (...newdata)=>{
+        let dataArr=[...data,...newdata]
+        thisObj.fn(...dataArr)
+        delete thisObj.fn
+      }
+    }
+    function foo(name,age)
+    {
+      console.log(this,name,age);
+    }
+    foo.cbBind({tutle:"sdsad"},'chenbin')(21)
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 函数的定义
+        // 1 自定义函数（命名函数）
+        function fn(){
+
+        }
+        //  2 函数表达式( 匿名函数)
+        var fn=function(){
+
+        }
+        // 3利用 new Function('参数1','参数2'，'函数体')
+        var f=new Function('a','b','')
+        // 4所有函数都是Function的实例对象
+
+        // 函数的调用
+        // 1.普通函数
+        function fn(){
+            console.log("普通函数");
+        }
+        fn();
+        // 2.对象的方法
+        var obj={
+            say:function(){
+                console.log('对象的方法');
+            }
+        }
+        obj.say();
+        // 3.构造函数
+        function Star(){}
+        new Star();
+        // 4.事件绑定
+        btn.onclick=function()
+        {
+
+        }
+        // 5.定时器函数
+        setInterval(function(){},1000)
+        // 6.立即执行函数
+        (function(){
+            console.log('立即执行函数');
+        })()
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 普通函数的this指向的是window
+        function fn(){
+            console.log("普通函数");
+        }
+        fn();
+        // 2.对象的方法 this指向的是对象obj
+        var obj={
+            say:function(){
+                console.log('对象的方法');
+            }
+        }
+        obj.say();
+        // 3.构造函数 this 指向实例对象 原型对象中this也指向实例对象
+        function Star(){}
+        new Star();
+        // 4.事件绑定 this指向函数调用者
+        btn.onclick=function()
+        {
+
+        }
+        // 5.定时器函数 this指向window
+        setInterval(function(){},1000)
+        // 6.立即执行函数 this指向window
+        (function(){
+            console.log('立即执行函数');
+        })()
+    </script>
+</body>
+</html>
