@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="./防抖/debounce.js"></script>
+  <script src="./节流/throttle.js"></script>
 </head>
 <body>
   <input type="text">
@@ -13,10 +14,16 @@
   <script>
     
     const inputText=document.querySelector('input')
+    // 防抖
     inputText.oninput=debounce(function()
     {
       console.log("触发",this.value);
     },1000)
+    // // 节流
+    // inputText.oninput=throttle(function()
+    // {
+    //   console.log("触发",this.value);
+    // },2000)
   </script>
 </body>
 </html>

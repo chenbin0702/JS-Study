@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./eventBus.js"></script>
+</head>
+<body>
+  <button>取消监听
+  </button>
+<script>
+  let btn=document.querySelector('button')
+  let cb="ssss"
+  const click=function(){
+    console.log("11122221");
+   }
+   const event=new EventBus()
+   event.on("cb",click)
+   event.on("cb",(cb)=>{
+    console.log(11122221,cb);
+   })
+   event.on("hr",(cb)=>{
+    console.log(1112213131,cb);
+   })
+   event.emit("hr",cb)
+   setTimeout(()=>{
+    event.off("cb",click)
+   },2000)
+   event.emit("cb",cb)
+   btn.addEventListener('click',()=>{
+    event.emit("cb",cb)
+   })
+</script>
+</body>
+</html>
