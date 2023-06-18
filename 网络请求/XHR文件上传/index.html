@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file">
+  <button type="" >上传文件</button>
+  <script>
+    const file=document.querySelector('input')
+    const btn=document.querySelector('button')
+    btn.onclick=function()
+    {
+      const filesList=file.files
+      if(!filesList.length){
+        alert('请上传文件')
+        return
+      }
+      const avatarFile=filesList[0]
+      const fileForm=new FormData()
+      fileForm.append('avatar',avatarFile)
+      const xhr=new XMLHttpRequest()
+      xhr.upload.onprogress=function(event)
+      {
+            console.log(event);
+      }
+      xhr.onload=function()
+      {
+        console.log(xhr.response);
+      }
+      xhr.open('post','http://123.207.32.32:1888/02_param/upload')
+      xhr.setRequestHeader('Content-Type', 'multipart/form-data')
+  // 发送请求
+  xhr.send(fileForm)
+
+    }
+  </script>
+</body>
+</html>
